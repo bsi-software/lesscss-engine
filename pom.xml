@@ -25,11 +25,24 @@
 	</licenses>
 
 	<scm>
-		<url>http://github.com/asual/lesscss-engine</url>
-		<connection>scm:git:git://github.com:asual/lesscss-engine.git</connection>
-		<developerConnection>scm:git:git@github.com:asual/lesscss-engine.git</developerConnection>
+		<url>https://github.com/BSI-Business-Systems-Integration-AG/lesscss-engine</url>
+		<connection>scm:git:git://github.com:BSI-Business-Systems-Integration-AG/lesscss-engine.git</connection>
+		<developerConnection>scm:git:git@github.com:BSI-Business-Systems-Integration-AG/lesscss-engine.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
+
+    <distributionManagement>
+      <snapshotRepository>
+        <id>bsi-ext-snapshots</id>
+        <name>BSI Artifactory repository for third party snapshots</name>
+        <url>https://scout.bsiag.com/repository/ext-snapshot-local</url>
+      </snapshotRepository>
+      <repository>
+        <id>bsi-ext-release</id>
+        <name>BSI Artifactory repository for third party libraries</name>
+        <url>https://scout.bsiag.com/repository/ext-release-local</url>
+      </repository>
+    </distributionManagement>
 
 	<developers>
 		<developer>
