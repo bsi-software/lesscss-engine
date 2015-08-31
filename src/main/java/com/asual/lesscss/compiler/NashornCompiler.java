@@ -14,12 +14,6 @@
 
 package com.asual.lesscss.compiler;
 
-import com.asual.lesscss.LessException;
-import com.asual.lesscss.LessOptions;
-import com.asual.lesscss.loader.ResourceLoader;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -29,10 +23,18 @@ import java.util.List;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.asual.lesscss.LessException;
+import com.asual.lesscss.LessOptions;
+import com.asual.lesscss.loader.ResourceLoader;
+
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
 import jdk.nashorn.internal.objects.NativeArray;
-import jdk.nashorn.internal.runtime.ScriptObject;
 import jdk.nashorn.internal.runtime.ECMAException;
+import jdk.nashorn.internal.runtime.ScriptObject;
 
 @SuppressWarnings("restriction")
 public class NashornCompiler implements LessCompiler {
@@ -62,11 +64,11 @@ public class NashornCompiler implements LessCompiler {
             scriptEngine.eval(new InputStreamReader(less
     				.openConnection().getInputStream()));
             scriptEngine.eval(new InputStreamReader(cssmin.openConnection()
-    				.getInputStream()));    		
+    				.getInputStream()));
             scriptEngine.eval(new InputStreamReader(engine.openConnection()
     				.getInputStream()));
     		compile = (ScriptObjectMirror) scriptEngine.get("compile");
-        } catch (ScriptException e) { 
+        } catch (ScriptException e) {
         	logger.error(e.getMessage(), e);
         }
 	}
@@ -100,7 +102,7 @@ public class NashornCompiler implements LessCompiler {
 					filename = so.get("filename").toString();
 				}
 				if (so.has("line")) {
-					line = ((Long) so.get("line")).intValue();
+					line = ((Double) so.get("line")).intValue();
 				}
 				if (so.has("column")) {
 					column = ((Double) so.get("column")).intValue();
