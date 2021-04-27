@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>9</version>
-	</parent>
-
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.asual.lesscss</groupId>
 	<artifactId>lesscss-engine</artifactId>
@@ -25,24 +19,19 @@
 	</licenses>
 
 	<scm>
-		<url>https://github.com/BSI-Business-Systems-Integration-AG/lesscss-engine</url>
-		<connection>scm:git:git://github.com:BSI-Business-Systems-Integration-AG/lesscss-engine.git</connection>
-		<developerConnection>scm:git:git@github.com:BSI-Business-Systems-Integration-AG/lesscss-engine.git</developerConnection>
+		<url>https://github.com/bsi-software/lesscss-engine</url>
+		<connection>scm:git:git://github.com:bsi-software/lesscss-engine.git</connection>
+		<developerConnection>scm:git:git@github.com:bsi-software/lesscss-engine.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
-    <distributionManagement>
-      <snapshotRepository>
-        <id>bsi-ext-snapshots</id>
-        <name>BSI Artifactory repository for third party snapshots</name>
-        <url>https://scout.bsiag.com/repository/ext-snapshot-local</url>
-      </snapshotRepository>
-      <repository>
-        <id>bsi-ext-release</id>
-        <name>BSI Artifactory repository for third party libraries</name>
-        <url>https://scout.bsiag.com/repository/ext-release-local</url>
-      </repository>
-    </distributionManagement>
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
 
 	<developers>
 		<developer>
